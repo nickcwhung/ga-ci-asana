@@ -1,0 +1,16 @@
+name: "Asana + Github - custom action"
+description: "change status of target task when PR is reviewed or merged"
+author: "Pedro Moreno"
+
+inputs:
+  asana-token:
+    description: 'The Asana token to be used to authenticate with the Asana API.'
+    required: true
+
+runs:
+  using: "node20"
+  main: "dist/index.js"
+
+branding:
+  icon: "zap"
+  color: "blue"
