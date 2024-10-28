@@ -1,4 +1,4 @@
-name: "Asana + Github - custom action"
+name: "Asana + Github - custom action (by Zignaly)"
 description: "change status of target task when PR is reviewed or merged"
 author: "Pedro Moreno"
 
