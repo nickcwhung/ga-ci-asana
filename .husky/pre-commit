@@ -6,4 +6,5 @@ npm run build
 npm test
 npm run lint:prettier:check
 npm run lint:eslint:check
+npm run lint:commitlint:check
 git add dist/*
