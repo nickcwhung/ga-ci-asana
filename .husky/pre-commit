@@ -4,4 +4,6 @@
 npx lint-staged
 npm run build
 npm test
+npm lint:prettier:check
+npm lint:eslint:check
 git add dist/*

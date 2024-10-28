@@ -7,8 +7,8 @@
     "build": "tsc && ncc build lib/index.js",
     "test": "jest",
     "test:watch": "jest --watch",
-    "lint:prettier:check": "prettier --check .",
-    "lint:prettier:fix": "prettier --write .",
+    "lint:prettier:check": "prettier --check ./src",
+    "lint:prettier:fix": "prettier --write ./src",
     "lint:eslint:check": "eslint ./src",
     "lint:commitlint:check": "npx commitlint --from $(git merge-base main HEAD) --to HEAD --verbose",
     "prepare": "husky"
