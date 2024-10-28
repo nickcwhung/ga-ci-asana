@@ -7,6 +7,10 @@
     "build": "tsc && ncc build lib/index.js",
     "test": "jest",
     "test:watch": "jest --watch",
+    "lint:prettier:check": "prettier --check .",
+    "lint:prettier:fix": "prettier --write .",
+    "lint:eslint:check": "eslint .",
+    "lint:commitlint:check": "npx commitlint --from $(git merge-base main HEAD) --to HEAD --verbose",
     "prepare": "husky"
   },
   "keywords": [],
@@ -16,6 +20,9 @@
     "@types/jest": "^29.5.14",
     "@types/node": "^22.8.1",
     "@typescript-eslint/eslint-plugin": "^8.11.0",
+    "@vercel/ncc": "^0.38.2",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.13.0",
     "eslint-plugin-jest": "^28.8.3",
     "husky": "^9.1.6",
@@ -25,5 +32,10 @@
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
