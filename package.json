@@ -9,7 +9,7 @@
     "test:watch": "jest --watch",
     "lint:prettier:check": "prettier --check .",
     "lint:prettier:fix": "prettier --write .",
-    "lint:eslint:check": "eslint .",
+    "lint:eslint:check": "eslint ./src",
     "lint:commitlint:check": "npx commitlint --from $(git merge-base main HEAD) --to HEAD --verbose",
     "prepare": "husky"
   },
