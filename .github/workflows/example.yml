@@ -1,0 +1,15 @@
+name: Asana
+on:
+  pull_request:
+    types: [opened, reopened]
+  pull_request_review:
+
+jobs:
+  change-dev-status:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./
+        with:
+          asana-token: ${{ secrets.ASANA_TOKEN }}
+          whitelist-github-users: "nennogabriel"
