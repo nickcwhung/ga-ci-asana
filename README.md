@@ -4,7 +4,7 @@
 
 Zignaly is the leading crypto investment platform in the profit-sharing segment, excellent for traders due to its ease of use and even better for investors, as they can find the best traders to invest with confidence. Visit our main site at [zignaly.com](https://zignaly.com).
 
-Zignaly is also the owner of [Zigchain](https://zigchain.com/?z=ghzig), a new way to expand resources for traders and profits for investors.
+Zignaly is also the owner of [ZIGChain](https://zigchain.com/?z=ghzig), a new way to expand resources for traders and profits for investors.
 
 ## Asana Task Status Updater GitHub Action
 
