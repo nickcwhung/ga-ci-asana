@@ -4,7 +4,7 @@ author: "Pedro Moreno"
 
 inputs:
   asana-token:
-    description: 'The Asana token to be used to authenticate with the Asana API.'
+    description: "The Asana token to be used to authenticate with the Asana API."
     required: true
 
 runs:

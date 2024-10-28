@@ -10,25 +10,29 @@ import { FlatCompat } from "@eslint/eslintrc";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const compat = new FlatCompat({
-    baseDirectory: __dirname,
-    recommendedConfig: js.configs.recommended,
-    allConfig: js.configs.all
+  baseDirectory: __dirname,
+  recommendedConfig: js.configs.recommended,
+  allConfig: js.configs.all,
 });
 
-export default [{
+export default [
+  {
     ignores: ["**/*.test.ts"],
-}, ...compat.extends("eslint:recommended", "plugin:@typescript-eslint/recommended"), {
+  },
+  ...compat.extends("eslint:recommended", "plugin:@typescript-eslint/recommended"),
+  {
     plugins: {
-        jest,
-        "@typescript-eslint": typescriptEslint,
+      jest,
+      "@typescript-eslint": typescriptEslint,
     },
 
     languageOptions: {
-        globals: {
-            ...globals.node,
-            ...jest.environments.globals.globals,
-        },
+      globals: {
+        ...globals.node,
+        ...jest.environments.globals.globals,
+      },
 
-        parser: tsParser,
+      parser: tsParser,
     },
-}];
+  },
+];
