@@ -57,3 +57,11 @@ jobs:
         with:
           asana-token: ${{ secrets.ASANA_TOKEN }}
 ```
+
+## License
+
+This project is licensed under the terms of the MIT license. See the LICENSE file for more details.
+
+## Privacy Notice
+
+This GitHub Action uses a personal access token from Asana to update task statuses. Ensure that the token is securely stored as a secret in GitHub and do not share this token publicly.
