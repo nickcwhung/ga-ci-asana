@@ -14,7 +14,7 @@ describe("run", () => {
 
   const PROJECT_ID = "01234";
   const TASK_ID = "56789";
-  const TASK_LINK = `https://app.asana.com/0/${PROJECT_ID}/${TASK_ID}`;
+  const TASK_LINK = `https://app.asana.com/1/32453456345345/project/${PROJECT_ID}/task/${TASK_ID}`;
   const TASK_USER = "johnDoe";
   const STATUS_ID = "654321";
   const CODE_REVIEW_ID = "123";
@@ -150,7 +150,7 @@ describe("run", () => {
 
   it("should update multiple tasks if multiple task links are found in the description", async () => {
     const TASK_ID_2 = "67890";
-    const TASK_LINK_2 = `https://app.asana.com/0/${PROJECT_ID}/${TASK_ID_2}`;
+    const TASK_LINK_2 = `https://app.asana.com/1/32453456345345/project/${PROJECT_ID}/task/${TASK_ID_2}`;
     github.context.payload = {
       pull_request: {
         number: 1,
