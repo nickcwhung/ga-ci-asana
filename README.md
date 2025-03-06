@@ -56,7 +56,13 @@ jobs:
       - uses: zignaly-open/ga-ci-asana@HEAD
         with:
           asana-token: ${{ secrets.ASANA_TOKEN }}
+          whitelist-github-users: "nennogabriel" # Optional
 ```
+
+## Optional Inputs
+
+whitelist-github-users: A comma-separated list of GitHub usernames.
+If provided, the action skip code review status update for users in the list.
 
 ## License
 
