@@ -11,30 +11,29 @@
     "lint:prettier:fix": "prettier --write ./src",
     "lint:eslint:check": "eslint ./src",
     "lint:commitlint:check": "npx commitlint --from $(git merge-base main HEAD) --to HEAD --verbose",
-    "update": "npx npm-check-updates -i",
     "prepare": "husky"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@commitlint/config-conventional": "19.7.1",
-    "@types/jest": "29.5.14",
-    "@types/node": "22.13.9",
-    "@typescript-eslint/eslint-plugin": "8.26.0",
-    "@vercel/ncc": "0.38.3",
-    "commitizen": "4.3.1",
-    "commitlint": "19.7.1",
-    "cz-conventional-changelog": "3.3.0",
-    "eslint": "9.21.0",
-    "eslint-plugin-jest": "28.11.0",
-    "husky": "9.1.7",
-    "jest": "29.7.0",
-    "lint-staged": "15.4.3",
-    "prettier": "3.5.3",
-    "ts-jest": "29.2.6",
-    "ts-node": "10.9.2",
-    "typescript": "5.8.2"
+    "@commitlint/config-conventional": "^19.5.0",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.8.1",
+    "@typescript-eslint/eslint-plugin": "^8.11.0",
+    "@vercel/ncc": "^0.38.2",
+    "commitizen": "^4.3.1",
+    "commitlint": "^19.5.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^9.13.0",
+    "eslint-plugin-jest": "^28.8.3",
+    "husky": "^9.1.6",
+    "jest": "^29.7.0",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
   },
   "config": {
     "commitizen": {
@@ -42,8 +41,8 @@
     }
   },
   "dependencies": {
-    "@actions/core": "1.11.1",
-    "@actions/github": "6.0.0",
-    "axios": "1.8.1"
+    "@actions/core": "^1.11.1",
+    "@actions/github": "^6.0.0",
+    "axios": "^1.7.7"
   }
 }
