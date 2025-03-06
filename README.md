@@ -56,17 +56,7 @@ jobs:
       - uses: zignaly-open/ga-ci-asana@HEAD
         with:
           asana-token: ${{ secrets.ASANA_TOKEN }}
-          whitelist-github-users: ""
-          # optional: string github usernames separated by comma
-          # example: 'strrife,cwagner22'
 ```
-
-## Options
-
-whitelist-github-users:
-
-- list of github usernames separated by comma.
-- users in this list send the task straight to "READY FOR QA" status.
 
 ## License
 
