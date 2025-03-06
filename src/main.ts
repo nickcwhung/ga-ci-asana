@@ -3,7 +3,9 @@ import * as github from "@actions/github";
 import asana from "./asana";
 
 export async function run() {
-  const ASANA_TASK_LINK_REGEX = /https:\/\/app.asana.com\/(\d+)\/(?<project>\d+)\/(?<taskId>\d+).*/gi;
+  // do a regex for this new link structure. e.g. https://app.asana.com/1/1200203178379976/project/<project>/task/<taskId>
+  const ASANA_TASK_LINK_REGEX =
+    /https:\/\/app\.asana\.com\/\d+\/\d+\/project\/(?<project>\d+)\/task\/(?<taskId>\d+).*/gi;
 
   const WHITELIST_GITHUB_USERS = (core.getInput("whitelist-github-users") || "").split(",");
 
