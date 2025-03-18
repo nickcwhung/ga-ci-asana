@@ -122,8 +122,10 @@ const core = __importStar(__nccwpck_require__(7484));
 const github = __importStar(__nccwpck_require__(3228));
 const asana_1 = __importDefault(__nccwpck_require__(4050));
 async function run() {
-    // do a regex for this new link structure. e.g. https://app.asana.com/1/1200203178379976/project/<project>/task/<taskId>
-    const ASANA_TASK_LINK_REGEX = /https:\/\/app\.asana\.com\/\d+\/\d+\/project\/(?<project>\d+)\/task\/(?<taskId>\d+).*/gi;
+    // Format 1: https://app.asana.com/1/1200203178379976/project/<project>/task/<taskId>
+    const ASANA_TASK_LINK_REGEX_FORMAT1 = /https:\/\/app\.asana\.com\/\d+\/\d+\/project\/(?<project>\d+)\/task\/(?<taskId>\d+).*/gi;
+    // Format 2: https://app.asana.com/0/<project>/<task>/f
+    const ASANA_TASK_LINK_REGEX_FORMAT2 = /https:\/\/app\.asana\.com\/0\/(?<project>\d+)\/(?<taskId>\d+)\/f.*/gi;
     const WHITELIST_GITHUB_USERS = (core.getInput("whitelist-github-users") || "").split(",");
     const CODE_REVIEW = "CODE REVIEW";
     const READY_FOR_QA = "READY FOR QA";
@@ -138,15 +140,25 @@ async function run() {
         return;
     }
     const taskIds = [];
-    let match;
-    while ((match = ASANA_TASK_LINK_REGEX.exec(description)) !== null) {
-        if (match.index === ASANA_TASK_LINK_REGEX.lastIndex) {
-            ASANA_TASK_LINK_REGEX.lastIndex++;
+    // Extract task IDs from Format 1 URLs
+    let match1;
+    while ((match1 = ASANA_TASK_LINK_REGEX_FORMAT1.exec(description)) !== null) {
+        if (match1.index === ASANA_TASK_LINK_REGEX_FORMAT1.lastIndex) {
+            ASANA_TASK_LINK_REGEX_FORMAT1.lastIndex++;
         }
-        if (!match.groups) {
-            continue;
+        if (match1.groups && match1.groups.taskId) {
+            taskIds.push(match1.groups.taskId);
         }
-        taskIds.push(match.groups.taskId);
+    }
+    // Extract task IDs from Format 2 URLs
+    let match2;
+    while ((match2 = ASANA_TASK_LINK_REGEX_FORMAT2.exec(description)) !== null) {
+        if (match2.index === ASANA_TASK_LINK_REGEX_FORMAT2.lastIndex) {
+            ASANA_TASK_LINK_REGEX_FORMAT2.lastIndex++;
+        }
+        if (match2.groups && match2.groups.taskId) {
+            taskIds.push(match2.groups.taskId);
+        }
     }
     if (taskIds.length === 0) {
         core.setFailed("No task id found in the description. Or link is missing.");
