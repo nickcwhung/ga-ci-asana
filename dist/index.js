@@ -179,7 +179,7 @@ async function run() {
         core.setFailed("There is no Field with name Task Progress.");
         return;
     }
-    console.log(`Custom field ${filterDevStatusId[0]}`)
+    console.log(`Custom field: ${JSON.stringify(filterDevStatusId[0], null, 2)}`);
     const devStatusId = filterDevStatusId[0].gid;
     const optionsList = [CODE_REVIEW, READY_FOR_QA];
     const filteredOptions = filterDevStatusId[0].enum_options
