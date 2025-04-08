@@ -169,7 +169,7 @@ async function run() {
         core.setFailed("There is no custom fields in the task.");
         return;
     }
-    const filterDevStatusId = task.custom_fields.filter((t) => ["STATUS", "DEV STATUS"].includes(t.name.toUpperCase()));
+    const filterDevStatusId = task.custom_fields.filter((t) => ["Task Progress"].includes(t.name.toUpperCase()));
     if (filterDevStatusId.length === 0) {
         core.setFailed("There is no Field with name Status or Dev Status.");
         return;
