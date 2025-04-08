@@ -169,7 +169,12 @@ async function run() {
         core.setFailed("There is no custom fields in the task.");
         return;
     }
-    const filterDevStatusId = task.custom_fields.filter((t) => ["Task Progress"].includes(t.name.toUpperCase()));
+
+    console.log('📋 Custom Fields found on this task:');
+    task.custom_fields.forEach((f) => {
+      console.log(`- name: "${f.name}", enum_value: ${f.enum_value?.name}`);
+    });
+    const filterDevStatusId = task.custom_fields.filter((t) => ["TASK PROGRESS"].includes(t.name.toUpperCase()));
     if (filterDevStatusId.length === 0) {
         core.setFailed("There is no Field with name Task Progress.");
         return;
