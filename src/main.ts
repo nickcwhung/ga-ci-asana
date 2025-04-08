@@ -12,8 +12,8 @@ export async function run() {
 
   const WHITELIST_GITHUB_USERS = (core.getInput("whitelist-github-users") || "").split(",");
 
-  const CODE_REVIEW = "CODE REVIEW";
-  const READY_FOR_QA = "READY FOR QA";
+  const CODE_REVIEW = "in Code Review";
+  const READY_FOR_QA = "Ready to Verify";
 
   const prInfo = github.context.payload;
   if (!prInfo.pull_request) {
