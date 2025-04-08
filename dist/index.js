@@ -216,8 +216,11 @@ async function run() {
             if (eventName === "pull_request" && (action === "opened" || action === "reopened")) {
                 return option[CODE_REVIEW];
             }
-            else if (eventName === "pull_request_review" && prInfo.review.state === "approved") {
-                return option[READY_FOR_QA];
+            // else if (eventName === "pull_request_review" && prInfo.review.state === "approved") {
+            //     return option[READY_FOR_QA];
+            // }
+            else if (eventName === "pull_request" && action === "closed" && prInfo.pull_request.merged) {
+              return option[READY_FOR_QA];
             }
         }
     })();
